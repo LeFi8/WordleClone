@@ -55,9 +55,16 @@ function addLetter(letter) {
     currentCell++;
 }
 
+function checkWord() {
+    // TODO: finish
+    const guess = guessBoard[currentRow].join("");
+    console.log(guess);
+}
+
 addEventListener("keypress", (event) => {
     if (event.code === "Enter") {
         if (currentCell !== guessBoard[0].length) return; // Return if row not filled
+        checkWord();
         currentRow++;
         currentCell = 0;
     } else {
