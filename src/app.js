@@ -1,6 +1,8 @@
 const gameBoard = document.querySelector(".game-board");
 const gameMessage = document.querySelector(".game-message");
 
+const wordle = "OCEAN"; // tmp
+
 const guessBoard = [
     ["", "", "", "", ""],
     ["", "", "", "", ""],
@@ -59,9 +61,9 @@ function addLetter(letter) {
 function checkWord() {
     // TODO: finish
     const guess = guessBoard[currentRow++].join("");
-    console.log(guess);
 
-    if (
+    if (guess === wordle) gameOver(true);
+    else if (
         currentCell == guessBoard[0].length &&
         currentRow == guessBoard.length
     ) {
@@ -75,7 +77,8 @@ function gameOver(correctGuess) {
     if (correctGuess) {
         gameMessage.textContent = "Congratulations!";
         gameMessage.style.color = "green";
-        console.log("Congratulations!");
+        currentCell = guessBoard[0].length;
+        currentRow = guessBoard.length;
     } else {
         gameMessage.textContent = "Game over, better luck next time!";
         gameMessage.style.color = "#ff0000";
