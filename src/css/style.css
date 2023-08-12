@@ -19,8 +19,14 @@ body {
     border-bottom: solid 1px darkslategray;
 }
 
+.game-message {
+    font-size: 24px;
+    padding-top: 16px;
+}
+
 .game-board {
     padding-top: 16px;
+    padding-bottom: 32px;
 }
 
 .game-board div {
@@ -30,6 +36,7 @@ body {
 .game-board .cell {
     width: 60px;
     height: 60px;
+    border-radius: 5px;
     align-items: center;
     box-sizing: border-box;
     display: flex;
