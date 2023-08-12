@@ -1,4 +1,5 @@
 const gameBoard = document.querySelector(".game-board");
+const gameMessage = document.querySelector(".game-message");
 
 const guessBoard = [
     ["", "", "", "", ""],
@@ -57,16 +58,34 @@ function addLetter(letter) {
 
 function checkWord() {
     // TODO: finish
-    const guess = guessBoard[currentRow].join("");
+    const guess = guessBoard[currentRow++].join("");
     console.log(guess);
+
+    if (
+        currentCell == guessBoard[0].length &&
+        currentRow == guessBoard.length
+    ) {
+        gameOver(false);
+    }
+
+    currentCell = 0;
+}
+
+function gameOver(correctGuess) {
+    if (correctGuess) {
+        gameMessage.textContent = "Congratulations!";
+        gameMessage.style.color = "green";
+        console.log("Congratulations!");
+    } else {
+        gameMessage.textContent = "Game over, better luck next time!";
+        gameMessage.style.color = "#ff0000";
+    }
 }
 
 addEventListener("keypress", (event) => {
     if (event.code === "Enter") {
         if (currentCell !== guessBoard[0].length) return; // Return if row not filled
         checkWord();
-        currentRow++;
-        currentCell = 0;
     } else {
         addLetter(event.key.toUpperCase());
     }
