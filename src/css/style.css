@@ -18,6 +18,10 @@ body {
     border-bottom: solid 1px darkslategray;
 }
 
+.game-board {
+    padding-top: 16px;
+}
+
 .game-board div {
     display: flex;
 }
