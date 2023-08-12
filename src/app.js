@@ -36,9 +36,15 @@ function createGameBoard() {
     });
 }
 
+let currentRow = 0;
+let currentCell = 0;
+
 function addLetter(letter) {
     // TODO: allow only normal letters
-    if (currentCell >= guessBoard[0].length) {
+    if (
+        currentCell >= guessBoard[0].length ||
+        currentRow >= guessBoard.length
+    ) {
         return;
     }
     const cell = document.getElementById(
@@ -48,9 +54,6 @@ function addLetter(letter) {
     guessBoard[currentRow][currentCell] = letter;
     currentCell++;
 }
-
-let currentRow = 0;
-let currentCell = 0;
 
 addEventListener("keypress", (event) => {
     if (event.code === "Enter") {
