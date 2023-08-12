@@ -2,9 +2,33 @@ body {
     background-color: palegoldenrod;
 }
 
+.game {
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .game-title {
+    width: 90%;
     font-size: 24px;
     text-align: center;
     color: darkslategray;
     border-bottom: solid 1px darkslategray;
+}
+
+.game-board div {
+    display: flex;
+}
+
+.game-board .cell {
+    width: 60px;
+    height: 60px;
+    align-items: center;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    margin: 2px;
+    border: 2px solid darkslategray;
 }
