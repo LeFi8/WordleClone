@@ -59,13 +59,15 @@ function addLetter(letter) {
     );
     cell.textContent = letter;
     guessBoard[currentRow][currentCell] = letter;
+    cell.setAttribute("data-letter", letter);
     currentCell++;
 }
 
 function checkWord() {
     // TODO: finish
-    const guess = guessBoard[currentRow++].join("");
+    checkLetter();
 
+    const guess = guessBoard[currentRow++].join("");
     if (guess === wordle) gameOver(true);
     else if (
         currentCell == guessBoard[0].length &&
@@ -75,6 +77,21 @@ function checkWord() {
     }
 
     currentCell = 0;
+}
+
+function checkLetter() {
+    const row = document.querySelector("#row-" + currentRow).childNodes;
+    row.forEach((cell, index) => {
+        const guessLetter = cell.getAttribute("data-letter");
+
+        setTimeout(() => {
+            if (guessLetter == wordle[index]) {
+                cell.classList.add("green-overlay");
+            } else if (wordle.includes(guessLetter)) {
+                cell.classList.add("yellow-overlay");
+            } else cell.classList.add("grey-overlay");
+        }, index * 300);
+    });
 }
 
 function gameOver(correctGuess) {
