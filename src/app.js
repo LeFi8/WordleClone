@@ -43,7 +43,7 @@ let currentRow = 0;
 let currentCell = 0;
 
 function addLetter(letter) {
-    const pattern = /^[A-Z]$/;
+    const pattern = /^$|^[A-Z]$/;
     // allow only normal letters
     if (!pattern.test(letter)) {
         return;
