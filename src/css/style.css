@@ -44,3 +44,18 @@ body {
     margin: 2px;
     border: 2px solid darkslategray;
 }
+
+.grey-overlay {
+    background-color: grey;
+    border: none;
+}
+
+.yellow-overlay {
+    background-color: yellow;
+    border: none;
+}
+
+.green-overlay {
+    background-color: green;
+    border: none;
+}
