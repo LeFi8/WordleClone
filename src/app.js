@@ -43,7 +43,11 @@ let currentRow = 0;
 let currentCell = 0;
 
 function addLetter(letter) {
-    // TODO: allow only normal letters
+    const pattern = /^[A-Z]$/;
+    // allow only normal letters
+    if (!pattern.test(letter)) {
+        return;
+    }
     if (
         currentCell >= guessBoard[0].length ||
         currentRow >= guessBoard.length
