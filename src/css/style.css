@@ -46,16 +46,13 @@ body {
 }
 
 .grey-overlay {
-    background-color: grey;
-    border: none;
+    background-color: darkslategray;
 }
 
 .yellow-overlay {
     background-color: yellow;
-    border: none;
 }
 
 .green-overlay {
     background-color: green;
-    border: none;
 }
